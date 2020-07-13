@@ -55,18 +55,21 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 //#define MATRIX_HAS_GHOST
 
 /* number of backlight levels */
-#define BACKLIGHT_LEVELS 3
+#define BACKLIGHT_LEVELS 2
+#define BACKLIGHT_PIN E6
+// #define BACKLIGHT_BREATHING
+// #define BREATHING_PERIOD 2
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
 
-#define RGB_DI_PIN D3
-#define RGBLIGHT_ANIMATIONS
-#define RGBLED_NUM 12         // Number of LEDs
-#define RGBLIGHT_HUE_STEP 8
-#define RGBLIGHT_SAT_STEP 8
-#define RGBLIGHT_VAL_STEP 8
+// #define RGB_DI_PIN D3
+// #define RGBLIGHT_ANIMATIONS
+// #define RGBLED_NUM 12         // Number of LEDs
+// #define RGBLIGHT_HUE_STEP 8
+// #define RGBLIGHT_SAT_STEP 8
+// #define RGBLIGHT_VAL_STEP 8
 
 #endif
