@@ -10,3 +10,4 @@ SRC +=  ./lib/glcdfont.c \
         # ./lib/timelogger.c \
 
 TAP_DANCE_ENABLE = yes
+RGBLIGHT_ENABLE = yes
