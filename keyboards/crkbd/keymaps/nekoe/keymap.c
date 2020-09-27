@@ -30,25 +30,31 @@ enum macro_keycodes {
   KC_SAMPLEMACRO,
 };
 
-//Tap Dance Declarations
-enum {
-  TD_LANG = 0
-};
+//lang
+#define LANG_EN  KC_LANG2
+#define LANG_JP  KC_LANG1
 
-//Tap Dance Definitions
-qk_tap_dance_action_t tap_dance_actions[] = {
-  //Tap once for LANG1, twice for LANG2
-  [TD_LANG] = ACTION_TAP_DANCE_DOUBLE(KC_LANG2, KC_LANG1)
-};
+// //Tap Dance Declarations
+// enum {
+//   TD_LANG = 0
+// };
+
+// //Tap Dance Definitions
+// qk_tap_dance_action_t tap_dance_actions[] = {
+//    //Tap once for LANG_EN, twice for LANG_JP
+//   [TD_LANG] = ACTION_TAP_DANCE_DOUBLE(LANG_EN, LANG_JP)
+// };
 
 // custom macros
-#define SPC_L2  LT(2, KC_SPC)        // tap: spc, hold: layer2
-#define ENT_L2  LT(2, KC_ENT)        // tap: ent, hold: layer2
-#define TAB_OPT MT(MOD_LALT, KC_TAB) // tap: tab, hold: opt
+#define JP_CMD  MT(MOD_LGUI, LANG_JP)  // tap: lang_jp, hold: cmd
+#define EN_L1   LT(1,        LANG_EN)  // tap: lang_en, hold: layer1
+#define SPC_L2  LT(2,        KC_SPC)   // tap: spc,     hold: layer2
+#define ENT_L2  LT(2,        KC_ENT)   // tap: ent,     hold: layer2
+#define TAB_OPT MT(MOD_LALT, KC_TAB)   // tap: tab,     hold: opt
 
 #define ____    KC_NO
 #define T___    KC_TRANSPARENT
-#define LANG    TD(TD_LANG)
+// #define LANG    TD(TD_LANG)
 
 #define CTL(k)    C(KC_##k)
 #define CMD(k)    G(KC_##k)
@@ -60,9 +66,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       TAB_OPT,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,    LANG,\
+      KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,    ____,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LCTL,   MO(1),  SPC_L2,     ENT_L2, KC_LGUI,    LANG \
+                                          KC_LCTL,   EN_L1,  SPC_L2,     ENT_L2,  JP_CMD,    ____ \
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -75,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    T___,    T___,    T___,    T___,    T___,                         T___,    T___,    T___,    T___, KC_BSLS, KC_RBRC,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LCTL,   MO(1),  SPC_L2,     ENT_L2, KC_LGUI,    LANG \
+                                          KC_LCTL,   EN_L1,  SPC_L2,     ENT_L2,  JP_CMD,    ____ \
                                       //`--------------------------'  `--------------------------'
     ),
 
@@ -87,7 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,  CMD(Z),  CMD(X),  CMD(C),  CMD(V), KC_LEFT,                      KC_DOWN,    ____,    ____,    ____,    ____,    ____,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LCTL,   MO(1),  SPC_L2,   CMD(ENT), KC_LGUI,    LANG \
+                                          KC_LCTL,   EN_L1,  SPC_L2,   CMD(ENT),  JP_CMD,    ____ \
                                       //`--------------------------'  `--------------------------'
   )
 };

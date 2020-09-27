@@ -9,5 +9,5 @@ SRC +=  ./lib/glcdfont.c \
         # ./lib/host_led_state_reader.c \
         # ./lib/timelogger.c \
 
-TAP_DANCE_ENABLE = yes
+#TAP_DANCE_ENABLE = yes
 RGBLIGHT_ENABLE = yes
