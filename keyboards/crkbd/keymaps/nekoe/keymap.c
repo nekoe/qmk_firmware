@@ -30,34 +30,44 @@ enum macro_keycodes {
   KC_SAMPLEMACRO,
 };
 
-//lang
+// lang
 #define LANG_EN  KC_LANG2
 #define LANG_JP  KC_LANG1
 
-// //Tap Dance Declarations
+// // Tap Dance declarations
 // enum {
-//   TD_LANG = 0
+//   TD_LANG = 0,
+//   TD_LANG_EN,
+//   TD_LANG_JP
 // };
 
-// //Tap Dance Definitions
+// // Tap Dance definitions
 // qk_tap_dance_action_t tap_dance_actions[] = {
-//    //Tap once for LANG_EN, twice for LANG_JP
-//   [TD_LANG] = ACTION_TAP_DANCE_DOUBLE(LANG_EN, LANG_JP)
+//   // tap once for LANG_EN, twice for LANG_JP
+//   [TD_LANG]    = ACTION_TAP_DANCE_DOUBLE(LANG_EN, LANG_JP),
+
+//   // tap once for nop, twice for LANG_EN
+//   [TD_LANG_EN] = ACTION_TAP_DANCE_DOUBLE(MO(1), LANG_EN),
+
+//   // tap once for nop, twice for LANG_JP
+//   [TD_LANG_JP] = ACTION_TAP_DANCE_DOUBLE(KC_LGUI, LANG_JP)
 // };
 
 // custom macros
-#define JP_CMD  MT(MOD_LGUI, LANG_JP)  // tap: lang_jp, hold: cmd
-#define EN_L1   LT(1,        LANG_EN)  // tap: lang_en, hold: layer1
-#define SPC_L2  LT(2,        KC_SPC)   // tap: spc,     hold: layer2
-#define ENT_L2  LT(2,        KC_ENT)   // tap: ent,     hold: layer2
-#define TAB_OPT MT(MOD_LALT, KC_TAB)   // tap: tab,     hold: opt
+#define ____      KC_NO
+#define T___      KC_TRANSPARENT
 
-#define ____    KC_NO
-#define T___    KC_TRANSPARENT
-// #define LANG    TD(TD_LANG)
-
+// #define SW_LNG    TD(TD_LANG)
+// #define SW_EN     TD(TD_LANG_EN)
+// #define SW_JP     TD(TD_LANG_JP)
 #define CTL(k)    C(KC_##k)
 #define CMD(k)    G(KC_##k)
+
+#define TAB_OPT   MT(MOD_LALT, KC_TAB)   // tap: tab,     hold: opt
+#define JP_CMD    MT(MOD_LGUI, LANG_JP)  // tap: lang_jp, hold: cmd
+#define EN_L1     LT(1,        LANG_EN)  // tap: lang_en, hold: layer1
+#define SPC_L2    LT(2,        KC_SPC)   // tap: spc,     hold: layer2
+#define ENT_L2    LT(2,        KC_ENT)   // tap: ent,     hold: layer2
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT( \
