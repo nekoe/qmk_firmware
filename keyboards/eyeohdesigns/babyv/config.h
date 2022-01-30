@@ -58,3 +58,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* disable these deprecated features by default */
 #define NO_ACTION_MACRO
 #define NO_ACTION_FUNCTION
+
+
+/* enable "Hold On Other Key Press" mode (ref. https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md#hold-on-other-key-press)*/
+#define HOLD_ON_OTHER_KEY_PRESS
