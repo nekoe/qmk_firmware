@@ -17,8 +17,8 @@
 #include QMK_KEYBOARD_H
 
 // lang
-#define LANG_EN  KC_LANG2
-#define LANG_JP  KC_LANG1
+#define LANG_EN  KC_LNG2
+#define LANG_JP  KC_LNG1
 
 // custom macros
 #define ____      KC_NO
@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		{ ____,     ____,    ____,    CTL(E),  ____,     ____,        ____,      ____,    ____,    ____,  KC_UP,  ____ },
 		{ ____,     CTL(A),  CMD(S),  KC_DEL,  KC_RGHT,  ____,        KC_BSPC,   ____,    CTL(K),  ____,  ____,   ____ },
 		{ KC_LSFT,  CMD(Z),  CMD(X),  CMD(C),  CMD(V),   KC_LEFT,     KC_DOWN,   ____,    ____,    ____,  ____,   ____ },
-		{ KC_LCTL,  ____,    ____,    ____,    EN_L1,    SPC_L2,      CMD(ENT),  JP_CMD,  ____,    ____,  ____,   ____ }
+		{ KC_LCTL,  ____,    ____,    ____,    EN_L1,    SPC_L2,      CMD(ENT),  JP_CMD,  ____,    ____,  ____,   QK_BOOT }
 	}
 
 };
