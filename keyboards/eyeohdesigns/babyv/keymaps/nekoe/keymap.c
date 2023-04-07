@@ -16,8 +16,8 @@
 #include QMK_KEYBOARD_H
 
 // lang
-#define LANG_EN  KC_LANG2
-#define LANG_JP  KC_LANG1
+#define LANG_EN  KC_LNG2
+#define LANG_JP  KC_LNG1
 
 // custom macros
 #define ____      KC_NO
@@ -57,6 +57,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ____,     ____,  ____,  ____,  ____,  ____,     ____,  ____,  ____,  ____,  ____,  ____,\
         ____,     ____,  ____,  ____,  ____,  ____,     ____,  ____,  ____,  ____,  ____,  ____,\
         KC_LSFT,  ____,  ____,  ____,  ____,  ____,     ____,  ____,  ____,  ____,  ____,  ____,\
-        ____,          RGB_HUI,  RGB_SAI,  RGB_VAI,     ____,  ____,  RGB_TOG,             RESET
+        ____,          RGB_HUI,  RGB_SAI,  RGB_VAI,     ____,  ____,  RGB_TOG,             QK_BOOT
     ),
 };
+
+#if defined(CONSOLE_ENABLE) && CONSOLE_ENABLE
+void keyboard_post_init_user(void) {
+  debug_enable=true;
+  debug_keyboard=true;
+}
+#endif
